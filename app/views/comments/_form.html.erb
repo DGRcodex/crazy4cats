@@ -1,0 +1,25 @@
+<!-- Start *TODO: "Agregar formulario de comentarios a vista show de artículos -->
+<%= form_with(model: @comment, local: true) do |f| %>
+    <% if @comment.errors.any? %>
+        <div id = 'error_explanation'>
+            <h2>Este comentario no se pudo crear por las siguientes razones</h2>
+            <ul>
+                <% @comment.errors.full_messages.each do |msg|%>
+                  <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div> 
+    <% end %>
+    <%= f.hidden_field :publication_id, value: @publication.id %>
+    <div class = 'field'>
+        <%= f.label :content, "Contenido", class:"form-label" %>
+        <div class="control">
+          <%= f.text_field :content, class:"form-control"  %>
+        </div>
+    </div>
+    <br>
+    <div class = 'actions'>
+      <%= f.submit class:"btn btn-primary" %>
+    </div>
+<% end %>
+<!-- End *TODO: "" -->

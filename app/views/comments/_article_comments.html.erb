@@ -1,0 +1,12 @@
+<!-- Start *TODO: "Agregamos comentarios a la vista show del artículo" -->
+<div class="container">
+    <% @comments.each do |comment| %>
+        <p class="subtitle">
+            <div class="owner-avatar">
+              <%= image_tag comment.user.photo, class: 'rounded-circle', style: "width:45px; height:45px;"  %>
+            </div>
+            <strong>Comentario: </strong><%= comment.content %>
+        </p>
+    <% end %>
+</div>
+<!-- End *TODO: "" -->

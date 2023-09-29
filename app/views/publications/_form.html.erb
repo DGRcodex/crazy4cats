@@ -1,0 +1,30 @@
+<%= form_with(model: publication) do |form| %>
+  <% if publication.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(publication.errors.count, "error") %> prohibited this publication from being saved:</h2>
+
+      <ul>
+        <% publication.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title, "Titulo", class:"form-label", style: "display: block" %>
+    <%= form.text_field :title, class:"form-control", placeholder:"Titulo" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description, "Descripcion", class:"form-label", style: "display: block" %>
+    <%= form.text_field :description, class:"form-control" %>
+  </div>
+
+  <br />
+  <div class="field">
+    <div class="control">
+      <%= form.submit class:"btn btn-success" %>
+    </div>
+  </div>
+<% end %>

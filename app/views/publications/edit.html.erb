@@ -1,0 +1,16 @@
+<br>
+<h2 class="title"><mark>Editar Publicacion</mark></h2>
+<br>
+<div class="card text-bg-light ">
+  <div class="card-body">
+    <%= render "form", publication: @publication %>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <%= link_to "Ver Publicacion", @publication, class:"btn btn-info" %> 
+  <%= link_to "Volver", publications_path, class:"btn btn-light" %>
+</div>
+

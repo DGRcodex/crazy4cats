@@ -1,0 +1,59 @@
+<p style="color: green"><%= notice %></p>
+
+<br>
+
+<h2 class="title"><mark>Publicacion</mark></h2>
+<br>
+<%= render @publication %>
+
+<br>
+
+<!-- Start *TODO: "Agregar botón para crear reacción en vista show del artículo" -->
+<div class="container">
+  <% Publication::Kinds.each do |kind| %>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end ">
+        <%= button_to "#{Publication::KindsSpanish[kind]}", new_user_reaction_path(publication_id: @publication.id, reaction_type: "publication", kind: kind), method: :post, class:"btn btn-outline-primary btn-sm" %>
+    </div>
+    <br>
+  <% end %>
+</div>
+<!-- End *TODO: "" -->
+
+<br>
+<!-- Start *TODO: "comentarios a vista show" -->
+
+  <div class="card">
+    <div class="card-content">
+      <div class="content">
+        <div class="container">
+          <strong>Realizar Comentario:</strong> <%= render 'comments/form' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<br>
+
+
+
+<hr>
+<div class="container">
+  <strong><mark>Comentarios:</mark></strong>
+  <div class="card text-bg-light ">
+  <div class="card-body">
+    <%= render 'comments/article_comments' %>
+  </div>
+</div>
+</div>
+<hr>
+
+<div class = "btn-group">
+  <%= link_to "Editar", edit_publication_path(@publication), class:"btn btn-warning" %> 
+  <%= link_to "Volver", publications_path, class:"btn btn-light" %>
+  <%= button_to "Eliminar", @publication, method: :delete, class:"btn btn-danger" %>
+</div> 
+
+<br>
+<br>
+
+

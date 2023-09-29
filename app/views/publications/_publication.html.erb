@@ -1,0 +1,26 @@
+<div id="<%= dom_id publication %>">
+
+  <div class="card">
+    <div class="card-header">
+      <p class="subtitle">
+        <strong>Titulo:</strong>
+        <span class="tag is-light is-medium"><%= publication.title %></span>
+      </p>
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <p class="subtitle">
+          <strong>Descripcion:</strong>
+          <%= publication.description %>
+        </p>
+        <footer class="blockquote-footer">
+          <p class="subtitle">
+            <strong>Publicado:</strong>
+            <cite title="Source Title"><%= publication.created_at %></cite>
+          </p>
+        </footer>
+      </blockquote>
+    </div>
+  </div>
+
+</div>
